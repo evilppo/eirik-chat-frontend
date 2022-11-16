@@ -19,7 +19,8 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
+// eslint-disable-line
+const app = initializeApp(firebaseConfig); // eslint-disable-line
 
 
 
