@@ -1,0 +1,108 @@
+[debug] [2022-11-16T19:26:32.331Z] ----------------------------------------------------------------------
+[debug] [2022-11-16T19:26:32.333Z] Command:       /usr/local/bin/node /usr/local/bin/firebase init
+[debug] [2022-11-16T19:26:32.333Z] CLI Version:   11.16.0
+[debug] [2022-11-16T19:26:32.333Z] Platform:      darwin
+[debug] [2022-11-16T19:26:32.333Z] Node Version:  v18.12.1
+[debug] [2022-11-16T19:26:32.334Z] Time:          Wed Nov 16 2022 20:26:32 GMT+0100 (Central European Standard Time)
+[debug] [2022-11-16T19:26:32.335Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-11-16T19:26:32.337Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2022-11-16T19:26:32.392Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-11-16T19:26:32.392Z] > authorizing via signed-in user (eirik.vilpponen@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /Users/eirikvilpponen/dev/source/eirik-chat/eirik-chat-frontend
+
+[debug] [2022-11-16T19:26:32.712Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2022-11-16T19:26:32.713Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2022-11-16T19:27:54.064Z] > refreshing access token with scopes: []
+[debug] [2022-11-16T19:27:54.066Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2022-11-16T19:27:54.066Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2022-11-16T19:27:54.168Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2022-11-16T19:27:54.168Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2022-11-16T19:27:54.194Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=100
+[debug] [2022-11-16T19:27:54.741Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2022-11-16T19:27:54.741Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[info] i  Using project eirik-chat (eirik-chat) 
+[info] 
+=== Database Setup
+[info] i  database: ensuring required API firebasedatabase.googleapis.com is enabled... 
+[debug] [2022-11-16T19:28:02.030Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/eirik-chat/services/firebasedatabase.googleapis.com [none]
+[debug] [2022-11-16T19:28:02.030Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/eirik-chat/services/firebasedatabase.googleapis.com x-goog-quota-user=projects/eirik-chat
+[debug] [2022-11-16T19:28:03.038Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/eirik-chat/services/firebasedatabase.googleapis.com 200
+[debug] [2022-11-16T19:28:03.038Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/eirik-chat/services/firebasedatabase.googleapis.com [omitted]
+[warn] ⚠  database: missing required API firebasedatabase.googleapis.com. Enabling now... 
+[debug] [2022-11-16T19:28:03.039Z] >>> [apiv2][query] POST https://serviceusage.googleapis.com/v1/projects/eirik-chat/services/firebasedatabase.googleapis.com:enable [none]
+[debug] [2022-11-16T19:28:03.039Z] >>> [apiv2][(partial)header] POST https://serviceusage.googleapis.com/v1/projects/eirik-chat/services/firebasedatabase.googleapis.com:enable x-goog-quota-user=projects/eirik-chat
+[debug] [2022-11-16T19:28:04.575Z] <<< [apiv2][status] POST https://serviceusage.googleapis.com/v1/projects/eirik-chat/services/firebasedatabase.googleapis.com:enable 200
+[debug] [2022-11-16T19:28:04.575Z] <<< [apiv2][body] POST https://serviceusage.googleapis.com/v1/projects/eirik-chat/services/firebasedatabase.googleapis.com:enable [omitted]
+[debug] [2022-11-16T19:28:14.580Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/eirik-chat/services/firebasedatabase.googleapis.com [none]
+[debug] [2022-11-16T19:28:14.580Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/eirik-chat/services/firebasedatabase.googleapis.com x-goog-quota-user=projects/eirik-chat
+[debug] [2022-11-16T19:28:15.529Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/eirik-chat/services/firebasedatabase.googleapis.com 200
+[debug] [2022-11-16T19:28:15.529Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/eirik-chat/services/firebasedatabase.googleapis.com [omitted]
+[info] ✔  database: required API firebasedatabase.googleapis.com is enabled 
+[info] 
+[debug] [2022-11-16T19:28:15.531Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/eirik-chat [none]
+[debug] [2022-11-16T19:28:15.827Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/eirik-chat 200
+[debug] [2022-11-16T19:28:15.827Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/eirik-chat {"projectId":"eirik-chat","projectNumber":"165015298457","displayName":"eirik-chat","name":"projects/eirik-chat","resources":{"hostingSite":"eirik-chat"},"state":"ACTIVE","etag":"1_10117d43-05f0-4b28-873d-b6654bf7aa2b"}
+[debug] [2022-11-16T19:28:27.405Z] >>> [apiv2][query] POST https://firebasedatabase.googleapis.com/v1beta/projects/eirik-chat/locations/europe-west1/instances databaseId=eirik-chat-default-rtdb&validateOnly=true
+[debug] [2022-11-16T19:28:27.405Z] >>> [apiv2][body] POST https://firebasedatabase.googleapis.com/v1beta/projects/eirik-chat/locations/europe-west1/instances {"type":"default_database"}
+[debug] [2022-11-16T19:28:28.341Z] <<< [apiv2][status] POST https://firebasedatabase.googleapis.com/v1beta/projects/eirik-chat/locations/europe-west1/instances 200
+[debug] [2022-11-16T19:28:28.341Z] <<< [apiv2][body] POST https://firebasedatabase.googleapis.com/v1beta/projects/eirik-chat/locations/europe-west1/instances {"name":"projects/165015298457/locations/europe-west1/instances/eirik-chat-default-rtdb","project":"projects/165015298457","databaseUrl":"https://eirik-chat-default-rtdb.europe-west1.firebasedatabase.app","type":"DEFAULT_DATABASE","state":"ACTIVE"}
+[debug] [2022-11-16T19:28:28.343Z] >>> [apiv2][query] POST https://firebasedatabase.googleapis.com/v1beta/projects/eirik-chat/locations/europe-west1/instances databaseId=eirik-chat-default-rtdb
+[debug] [2022-11-16T19:28:28.343Z] >>> [apiv2][body] POST https://firebasedatabase.googleapis.com/v1beta/projects/eirik-chat/locations/europe-west1/instances {"type":"default_database"}
+[debug] [2022-11-16T19:28:29.566Z] <<< [apiv2][status] POST https://firebasedatabase.googleapis.com/v1beta/projects/eirik-chat/locations/europe-west1/instances 200
+[debug] [2022-11-16T19:28:29.566Z] <<< [apiv2][body] POST https://firebasedatabase.googleapis.com/v1beta/projects/eirik-chat/locations/europe-west1/instances {"name":"projects/165015298457/locations/europe-west1/instances/eirik-chat-default-rtdb","project":"projects/165015298457","databaseUrl":"https://eirik-chat-default-rtdb.europe-west1.firebasedatabase.app","type":"DEFAULT_DATABASE","state":"ACTIVE"}
+[info] 
+[info] Firebase Realtime Database Security Rules allow you to define how your data should be
+[info] structured and when your data can be read from and written to.
+[info] 
+[debug] [2022-11-16T19:28:42.884Z] >>> [apiv2][query] GET https://eirik-chat-default-rtdb.europe-west1.firebasedatabase.app/.settings/rules.json [none]
+[debug] [2022-11-16T19:28:44.097Z] <<< [apiv2][status] GET https://eirik-chat-default-rtdb.europe-west1.firebasedatabase.app/.settings/rules.json 200
+[debug] [2022-11-16T19:28:44.097Z] <<< [apiv2][body] GET https://eirik-chat-default-rtdb.europe-west1.firebasedatabase.app/.settings/rules.json [stream]
+[info] ✔  Database Rules for eirik-chat-default-rtdb have been written to database.rules.json. 
+[info] Future modifications to database.rules.json will update Realtime Database Security Rules when you run
+[info] firebase deploy.
+[info] 
+=== Hosting Setup
+[info] 
+[info] Your public directory is the folder (relative to your project directory) that
+[info] will contain Hosting assets to be uploaded with firebase deploy. If you
+[info] have a build process for your assets, use your build's output directory.
+[info] 
+[debug] [2022-11-16T19:29:44.858Z] >>> [apiv2][query] GET https://www.gstatic.com/firebasejs/releases.json [none]
+[debug] [2022-11-16T19:29:44.940Z] <<< [apiv2][status] GET https://www.gstatic.com/firebasejs/releases.json 200
+[debug] [2022-11-16T19:29:44.940Z] <<< [apiv2][body] GET https://www.gstatic.com/firebasejs/releases.json {"current":{"version":"9.14.0","browserURL":"https://www.gstatic.com/firebasejs/9.14.0/firebase.js","packageURL":"https://www.gstatic.com/firebasejs/9.14.0/firebase.tgz"},"live":{"version":"9.14","browserURL":"https://www.gstatic.com/firebasejs/live/9.14/firebase.js","packageURL":"https://www.gstatic.com/firebasejs/live/9.14/firebase.tgz"},"components":{"analytics":"https://www.gstatic.com/firebasejs/9.14.0/firebase-analytics.js","app":"https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js","app-check":"https://www.gstatic.com/firebasejs/9.14.0/firebase-app-check.js","auth":"https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js","auth/cordova":"https://www.gstatic.com/firebasejs/9.14.0/firebase-auth/cordova.js","auth/react-native":"https://www.gstatic.com/firebasejs/9.14.0/firebase-auth/react-native.js","functions":"https://www.gstatic.com/firebasejs/9.14.0/firebase-functions.js","firestore":"https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js","firestore/lite":"https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore/lite.js","installations":"https://www.gstatic.com/firebasejs/9.14.0/firebase-installations.js","storage":"https://www.gstatic.com/firebasejs/9.14.0/firebase-storage.js","performance":"https://www.gstatic.com/firebasejs/9.14.0/firebase-performance.js","remote-config":"https://www.gstatic.com/firebasejs/9.14.0/firebase-remote-config.js","messaging":"https://www.gstatic.com/firebasejs/9.14.0/firebase-messaging.js","messaging/sw":"https://www.gstatic.com/firebasejs/9.14.0/firebase-messaging/sw.js","database":"https://www.gstatic.com/firebasejs/9.14.0/firebase-database.js","firestore.memory":"https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.memory.js"}}
+[info] ✔  Wrote public/index.html 
+[info] 
+[info] i  Detected a .git folder at /Users/eirikvilpponen/dev/source/eirik-chat/eirik-chat-frontend 
+[info] i  Authorizing with GitHub to upload your service account to a GitHub repository's secrets store. 
+[info] 
+[info] Visit this URL on this device to log in:
+[info] https://github.com/login/oauth/authorize?client_id=89cf50f02ac6aaed3484&state=356425524&redirect_uri=http%3A%2F%2Flocalhost%3A9005&scope=read%3Auser%20repo%20public_repo
+[info] 
+[info] Waiting for authentication...
+[debug] [2022-11-16T19:33:03.080Z] >>> [apiv2][query] POST https://github.com/login/oauth/access_token [none]
+[debug] [2022-11-16T19:33:03.081Z] >>> [apiv2][body] POST https://github.com/login/oauth/access_token [stream]
+[debug] [2022-11-16T19:33:03.489Z] <<< [apiv2][status] POST https://github.com/login/oauth/access_token 200
+[debug] [2022-11-16T19:33:03.490Z] <<< [apiv2][body] POST https://github.com/login/oauth/access_token {"access_token":"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","token_type":"bearer","scope":"read:user,repo"}
+[debug] [2022-11-16T19:33:03.495Z] >>> [apiv2][query] GET https://api.github.com/user [none]
+[debug] [2022-11-16T19:33:03.932Z] <<< [apiv2][status] GET https://api.github.com/user 200
+[debug] [2022-11-16T19:33:03.932Z] <<< [apiv2][body] GET https://api.github.com/user {"login":"evilppo","id":28704275,"node_id":"MDQ6VXNlcjI4NzA0Mjc1","avatar_url":"https://avatars.githubusercontent.com/u/28704275?v=4","gravatar_id":"","url":"https://api.github.com/users/evilppo","html_url":"https://github.com/evilppo","followers_url":"https://api.github.com/users/evilppo/followers","following_url":"https://api.github.com/users/evilppo/following{/other_user}","gists_url":"https://api.github.com/users/evilppo/gists{/gist_id}","starred_url":"https://api.github.com/users/evilppo/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/evilppo/subscriptions","organizations_url":"https://api.github.com/users/evilppo/orgs","repos_url":"https://api.github.com/users/evilppo/repos","events_url":"https://api.github.com/users/evilppo/events{/privacy}","received_events_url":"https://api.github.com/users/evilppo/received_events","type":"User","site_admin":false,"name":"Eirik Vilpponen","company":null,"blog":"","location":"Oslo","email":"eirik.vilpponen@gmail.com","hireable":null,"bio":"Oslo-based developer","twitter_username":null,"public_repos":11,"public_gists":0,"followers":0,"following":3,"created_at":"2017-05-15T10:12:06Z","updated_at":"2022-02-14T23:43:30Z","private_gists":0,"total_private_repos":0,"owned_private_repos":0,"disk_usage":23565,"collaborators":0,"two_factor_authentication":false,"plan":{"name":"free","space":976562499,"collaborators":0,"private_repos":10000}}
+[info] 
+[info] ✔  Success! Logged into GitHub as evilppo 
+[info] 
