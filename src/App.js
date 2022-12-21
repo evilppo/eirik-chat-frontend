@@ -4,6 +4,8 @@ import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { useState } from "react";
 
+/* eslint-disable */
+
 const firebaseConfig = {
     apiKey: "AIzaSyDgBvjjrvV7TJywOxlRX9YvZovA_DyNk5c",
     authDomain: "eirik-chat.firebaseapp.com",
