@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import { initializeApp } from "firebase/app";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { useState } from "react";
 
 const firebaseConfig = {
@@ -19,10 +19,12 @@ const app = initializeApp(firebaseConfig);
 // Initialize Firebase Authentication and get a reference to the service
 const auth = getAuth(app);
 
+const provider = new GoogleAuthProvider();
+
 function App() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const [userId, setUserId] = useState('');
+    const [userInfo, setUserInfo] = useState({});
 
     return (
         <div className="App">
@@ -45,17 +47,45 @@ function App() {
                             // Signed in
                             const user = userCredential.user;
                             console.log(user)
-                            setUserId(user.uid)
+                            setUserInfo(user)
                             // ...
                         })
                         .catch((error) => {
                         });
                 }}>
-                    Log Inn
+                    Sign in with e-mail and password
+                </button>
+
+                <br/>
+
+                <button onClick={() => {
+                    signInWithPopup(auth, provider)
+                        .then((result) => {
+                            // This gives you a Google Access Token. You can use it to access the Google API.
+                            const credential = GoogleAuthProvider.credentialFromResult(result);
+                            const token = credential.accessToken;
+                            // The signed-in user info.
+                            const user = result.user;
+                            console.log(user);
+                            setUserInfo(user)
+                            // ...
+                        }).catch((error) => {
+                        // Handle Errors here.
+                        const errorCode = error.code;
+                        const errorMessage = error.message;
+                        // The email of the user's account used.
+                        const email = error.customData.email;
+                        // The AuthCredential type that was used.
+                        const credential = GoogleAuthProvider.credentialFromError(error);
+                        // ...
+                    });
+                }}>
+                    Sign in with Google
                 </button>
 
                 <h2>User info</h2>
-                <p>user ID: {userId}</p>
+                <p>User display name: {userInfo.displayName}</p>
+                <p>User ID: {userInfo.uid}</p>
 
             </header>
         </div>
