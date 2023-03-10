@@ -3,12 +3,14 @@ import './App.css';
 import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { useState } from "react";
+import { getDatabase } from "firebase/database";
 
 /* eslint-disable */
 
 const firebaseConfig = {
     apiKey: "AIzaSyDgBvjjrvV7TJywOxlRX9YvZovA_DyNk5c",
     authDomain: "eirik-chat.firebaseapp.com",
+    databaseURL: "https://eirik-chat-default-rtdb.europe-west1.firebasedatabase.app",
     projectId: "eirik-chat",
     storageBucket: "eirik-chat.appspot.com",
     messagingSenderId: "165015298457",
@@ -22,6 +24,10 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
 const provider = new GoogleAuthProvider();
+
+// Initialize Realtime Database and get a reference to the service
+const database = getDatabase(app);
+
 
 function App() {
     const [username, setUsername] = useState('');
