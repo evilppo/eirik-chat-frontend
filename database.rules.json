@@ -1,35 +1,22 @@
 {
   "rules": {
-    "user": {
-      ".read": true,
-      ".write": false,
-      "userId": {
-        ".read": true,
-        ".write": false
-      },
-      "iconLink": {
-        ".read": true,
-        ".write": false
-      },
-      "userName": {
-        ".read": true,
-        ".write": false
-      }
-    },
-    "message": {
-      ".read": true,
-      ".write": false,
+    "messages": {
+      ".read": "auth != null",
+      ".write": "auth != null",
       "messageText": {
-        ".read": true,
-        ".write": false
+        ".validate": "newData.isString() && newData.val().length <= 500"
       },
       "messageTimestamp": {
-        ".read": true,
-        ".write": false
+        ".validate": "newData.isNumber()"
       },
       "messageAuthor": {
-        ".read": true,
-        ".write": false
+        ".validate": "newData.isString() && newData.val().length <= 50"
+      },
+      "messageAuthorId": {
+        ".validate": "newData.isString() && newData.val().length <= 50"
+      },
+      "messageAuthorPhoto": {
+        ".validate": "newData.isString() && newData.val().length <= 500"
       }
     }
   }
