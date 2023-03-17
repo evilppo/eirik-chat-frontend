@@ -3,7 +3,7 @@ import './App.css';
 import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { useState } from "react";
-import { getDatabase } from "firebase/database";
+import { getDatabase, ref, set } from "firebase/database";
 
 /* eslint-disable */
 
@@ -27,6 +27,16 @@ const provider = new GoogleAuthProvider();
 
 // Initialize Realtime Database and get a reference to the service
 const database = getDatabase(app);
+
+
+ const writeUserData = () => {
+    set(ref(database, 'messages'), {
+        messageText: "test asd123",
+        messageTimestamp: Date.now(),
+        messageAuthor: "Eirik"
+    });
+}
+
 
 
 function App() {
@@ -94,6 +104,8 @@ function App() {
                 <h2>User info</h2>
                 <p>User display name: {userInfo.displayName}</p>
                 <p>User ID: {userInfo.uid}</p>
+
+                <button onClick={writeUserData}> writeUserdata</button>
 
             </header>
         </div>
