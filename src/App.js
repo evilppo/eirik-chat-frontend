@@ -29,11 +29,12 @@ const provider = new GoogleAuthProvider();
 const database = getDatabase(app);
 
 
-function writeUserData() {
-    set(ref(database, 'messages/'), {
-        messageAuthor: "Eirik",
-        messageText: "Hello world",
-        messageTimestamp: Date.now()
+function writeUserData(userInfo, messageText) {
+    set(ref(database, 'messages/' + Math.floor(Math.random() * 100000000000000)), {
+        "messageAuthor": userInfo.displayName,
+        "messageText": messageText,
+        "messageTimestamp": Date.now(),
+        "messageAuthorId": userInfo.uid
     })
 }
 
@@ -104,7 +105,7 @@ function App() {
                 <p>User display name: {userInfo.displayName}</p>
                 <p>User ID: {userInfo.uid}</p>
 
-                <button onClick={() => writeUserData()}>Write to database</button>
+                <button onClick={() => writeUserData(userInfo, "asd message text")}>Write to database</button>
 
             </header>
         </div>
