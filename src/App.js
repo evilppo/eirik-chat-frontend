@@ -44,6 +44,8 @@ function App() {
     const [password, setPassword] = useState('');
     const [userInfo, setUserInfo] = useState({});
 
+    const [message, setMessage] = useState('');
+
     return (
         <div className="App">
             <header className="App-header">
@@ -105,7 +107,13 @@ function App() {
                 <p>User display name: {userInfo.displayName}</p>
                 <p>User ID: {userInfo.uid}</p>
 
-                <button onClick={() => writeUserData(userInfo, "asd message text")}>Write to database</button>
+                <p>Submit your message to the chat-log:</p>
+                <input
+                    value={message} // ...force the input's value to match the state variable...
+                    onChange={e => setMessage(e.target.value)} // ... and update the state variable on any edits!
+                />
+
+                <button onClick={() => writeUserData(userInfo, message)}>Write to database</button>
 
             </header>
         </div>
