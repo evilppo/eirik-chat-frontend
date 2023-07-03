@@ -3,7 +3,7 @@ import './App.css';
 import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { useState } from "react";
-import { getDatabase, ref, set } from "firebase/database";
+import { getDatabase, ref, set, onValue } from "firebase/database";
 
 /* eslint-disable */
 
@@ -38,6 +38,12 @@ function writeUserData(userInfo, messageText) {
     })
 }
 
+const messageDataRef = ref(database, 'messages/');
+
+onValue(messageDataRef, (snapshot) => {
+    const data = snapshot.val();
+    console.log(data);
+});
 
 function App() {
     const [username, setUsername] = useState('');
@@ -45,6 +51,8 @@ function App() {
     const [userInfo, setUserInfo] = useState({});
 
     const [message, setMessage] = useState('');
+
+    const [messagesData, setMessagesData] = useState('');
 
     return (
         <div className="App">
