@@ -39,11 +39,38 @@ function writeUserData(userInfo, messageText) {
 }
 
 const messageDataRef = ref(database, 'messages/');
+let allMessagesData = {};
 
 onValue(messageDataRef, (snapshot) => {
     const data = snapshot.val();
     console.log(data);
+    allMessagesData = data;
 });
+
+function extractMessages(msgData) {
+    if (!msgData) return;
+    let entries = Object.entries(msgData);
+    let entryValues = entries.map(entry => entry[1]);
+    return entryValues;
+}
+
+const ListComponent = (list) => {
+    return (
+        <div>
+            {list.map((item, index) => (
+                <div key={index}>
+                    {/* Create a React component for each item */}
+                    <ItemComponent item={item} />
+                </div>
+            ))}
+        </div>
+    );
+};
+
+const ItemComponent = ({ item }) => {
+
+    return <div><div>{item.messageAuthor} :</div><h3>{item.messageText}</h3></div>;
+};
 
 function App() {
     const [username, setUsername] = useState('');
@@ -51,8 +78,6 @@ function App() {
     const [userInfo, setUserInfo] = useState({});
 
     const [message, setMessage] = useState('');
-
-    const [messagesData, setMessagesData] = useState('');
 
     return (
         <div className="App">
@@ -123,6 +148,11 @@ function App() {
 
                 <button onClick={() => writeUserData(userInfo, message)}>Write to database</button>
 
+                <div>
+                    <h2>Chat log</h2>
+                    <div>Messages:</div>
+                    <div>{ListComponent(extractMessages(allMessagesData))}</div>
+                </div>
             </header>
         </div>
     );
