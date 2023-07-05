@@ -30,10 +30,9 @@ const database = getDatabase(app);
 
 
 function writeUserData(userInfo, messageText) {
-    set(ref(database, 'messages/' + Math.floor(Math.random() * 100000000000000)), {
+    set(ref(database, 'messages/' + Date.now()), {
         "messageAuthor": userInfo.displayName,
         "messageText": messageText,
-        "messageTimestamp": Date.now(),
         "messageAuthorId": userInfo.uid
     })
 }
@@ -55,6 +54,7 @@ function extractMessages(msgData) {
 }
 
 const ListComponent = (list) => {
+    if(!list) return (<div>loading...</div> );
     return (
         <div>
             {list.map((item, index) => (
